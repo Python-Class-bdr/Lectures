@@ -17,12 +17,37 @@
 # o The function count_poisonous takes a list of mushroom codes and returns the number of poisonous mushrooms in the list.
 # Sample Input:
 # poisonous_codes = ['cod', 'arpe', 'xxyt', 'acr', 'bcd', 'xz']
-# forest_mushrooms = ['htrcd', 'tarpes, 'xxytr', 'ceaar', 'vvbctd', vsxz', 'accr', 'ccod', 'ttyt', 'garxxytacr', 'ccd', 'xz']
+# forest_mushrooms = ['htrcd', 'tarpes', 'xxytr', 'ceaar', 'vvbctd', 'vsxz', 'accr', 'ccod', 'ttyt', 'garxxytacr', 'ccd', 'xz']
 # Sample Output:
 # The forest contains: 12 mushrooms
 # Number of poisonous mushrooms: 6
 # Number of edible mushrooms: 6
 # -----------------------------------------------------------------------------
+def is_poisonous(mushroom, poisonous_codes):
+    # mushroom = arpe
+    # poisonous_codes = ['cod', 'arpe', 'xxyt', 'acr', 'bcd', 'xz']
+    for code in poisonous_codes:
+        if code in mushroom:
+            return True # poisonous
+    return False # non-poisonous
+
+
+def count_poisionous(mushroom_list, poisonous_codes):
+    counter_p = 0
+    for mushroom in mushroom_list:
+        if is_poisonous(mushroom, poisonous_codes):
+            counter_p = counter_p + 1
+    return counter_p
+
+
+poisonous_codes = ['cod', 'arpe', 'xxyt', 'acr', 'bcd', 'xz']
+forest_mushrooms = ['htrcd', 'tarpes', 'xxytr', 'ceaar', 'vvbctd', 'vsxz', 'accr', 'ccod', 'ttyt', 'garxxytacr', 'ccd', 'xz']
+num_p = count_poisionous(forest_mushrooms, poisonous_codes)
+num_m = len(forest_mushrooms)
+
+print(f'Total number of mushrooms:\t{num_m}')
+print(f'Number of poisonous:\t\t{num_p}')
+print(f'Number of edible:\t\t{num_m - num_p}')
 # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # Q3
 # Topic: If-Else / Functions
